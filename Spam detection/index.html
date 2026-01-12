@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpamGuard</title>
+    <meta property="og:title" content="SpamGuard AI">
+    <meta property="og:description" content="Detect spam across emails, messages, links, and more — instantly.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <div class="logo-section">
+            <i class="fas fa-shield-alt"></i>
+            <div class="logo-text">
+              <h1>SpamGuard</h1>
+              <p class="tagline">Detect spam across emails, messages, links, and more — instantly</p>
+            </div>
+          </div>
+          <div class="header-icons">
+            <a href="#" title="GitHub" class="icon-btn"><i class="fab fa-github"></i></a>
+            <a href="#about" class="icon-btn" title="About"><i class="fas fa-info-circle"></i></a>
+            <a href="#" title="Help" class="icon-btn"><i class="fas fa-question-circle"></i></a>
+          </div>
+        </div>
+      </header>
+
+      <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h2>Detection Types</h2>
+          </div>
+          <nav class="sidebar-menu">
+            <button type="button" class="menu-item active" data-section="email">
+              <i class="fas fa-envelope"></i>
+              <span>Email Spam Detection</span>
+            </button>
+            <button type="button" class="menu-item" data-section="sms">
+              <i class="fas fa-comments"></i>
+              <span>SMS Spam Detection</span>
+            </button>
+            <button type="button" class="menu-item" data-section="link">
+              <i class="fas fa-link"></i>
+              <span>Link/URL Detection</span>
+            </button>
+            <button  type="button" class="menu-item" data-section="content">
+              <i class="fas fa-newspaper"></i>
+              <span>Content Spam Detection</span>
+            </button>
+            <button type="button" class="menu-item" data-section="phone">
+              <i class="fas fa-phone"></i>
+              <span>Phone Number Detection</span>
+            </button>
+            <hr class="sidebar-divider">
+            <button class="menu-item" data-section="performance">
+              <i class="fas fa-chart-bar"></i>
+              <span>Model Performance</span>
+            </button>
+            <button class="menu-item" data-section="about">
+              <i class="fas fa-book"></i>
+              <span>About Project</span>
+            </button>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content-area">
+          <!-- Email Spam Detection -->
+          <section id="email" class="content-section active">
+            <div class="section-header">
+              <h2><i class="fas fa-envelope"></i> Email Spam Detection</h2>
+              <p>Analyze email content to detect spam and phishing attempts</p>
+            </div>
+
+            <div class="input-card">
+              <label for="email-input">Paste your email content here:</label>
+              <textarea id="email-input" placeholder="Dear customer, Click here to claim your prize..." rows="8"></textarea>
+              <div class="input-meta">
+                <span id="email-chars">0</span> characters
+              </div>
+              <button class="btn-primary" onclick="detectEmailSpam()">
+                <i class="fas fa-search"></i> Analyze Email
+              </button>
+            </div>
+
+            <div id="email-result" class="result-card" style="display: none;">
+              <div class="result-header">
+                <span id="email-status" class="status-badge"></span>
+                <span id="email-confidence" class="confidence-score"></span>
+              </div>
+              <div class="probability-section">
+                <label>Spam Probability</label>
+                <div class="progress-bar">
+                  <div id="email-progress" class="progress-fill"></div>
+                </div>
+              </div>
+              <div id="email-keywords" class="keywords-section"></div>
+              <p class="privacy-note">
+                <i class="fas fa-lock"></i> We do not store your emails. Privacy guaranteed.
+              </p>
+              <button class="btn-secondary" onclick="resetEmailDetection()">Reset</button>
+            </div>
+          </section>
+
+          <!-- SMS Spam Detection -->
+          <section id="sms" class="content-section">
+            <div class="section-header">
+              <h2><i class="fas fa-comments"></i> SMS Spam Detection</h2>
+              <p>Detect spam in text messages and SMS communications</p>
+            </div>
+
+            <div class="input-card">
+              <label for="sms-input">Enter your message:</label>
+              <textarea id="sms-input" placeholder="Hi, visit our site and claim reward..." rows="5"></textarea>
+              <div class="input-meta">
+                <span id="sms-chars">0</span> / 160 characters
+              </div>
+              <button class="btn-primary" onclick="detectSMSSpam()">
+                <i class="fas fa-search"></i> Detect Spam
+              </button>
+            </div>
+
+            <div id="sms-result" class="result-card" style="display: none;">
+              <div class="result-header">
+                <span id="sms-status" class="status-badge"></span>
+                <span id="sms-confidence" class="confidence-score"></span>
+              </div>
+              <div class="probability-section">
+                <label>Spam Probability</label>
+                <div class="progress-bar">
+                  <div id="sms-progress" class="progress-fill"></div>
+                </div>
+              </div>
+              <p class="privacy-note">
+                <i class="fas fa-lock"></i> Messages are not stored. Your privacy is protected.
+              </p>
+              <button class="btn-secondary" onclick="resetSMSDetection()">Reset</button>
+            </div>
+          </section>
+
+          <!-- Link/URL Detection -->
+          <section id="link" class="content-section">
+            <div class="section-header">
+              <h2><i class="fas fa-link"></i> Link/URL Spam Detection</h2>
+              <p>Check if a URL is safe, suspicious, or potentially malicious</p>
+            </div>
+
+            <div class="input-card">
+              <label for="url-input">Enter URL to analyze:</label>
+              <input type="text" id="url-input" placeholder="https://example.com/offer" class="url-input">
+              <button class="btn-primary" onclick="detectURLSpam()">
+                <i class="fas fa-search"></i> Scan URL
+              </button>
+            </div>
+
+            <div id="url-result" class="result-card" style="display: none;">
+              <div class="result-header">
+                <span id="url-status" class="status-badge"></span>
+              </div>
+              <div class="url-indicators">
+                <div class="indicator" id="url-shortened"></div>
+                <div class="indicator" id="url-keywords"></div>
+              </div>
+              <div class="confidence-section">
+                <label>Confidence Score</label>
+                <div id="url-confidence" class="confidence-score"></div>
+              </div>
+              <button class="btn-secondary" onclick="resetURLDetection()">Reset</button>
+            </div>
+          </section>
+
+          <!-- Content Spam Detection -->
+          <section id="content" class="content-section">
+            <div class="section-header">
+              <h2><i class="fas fa-newspaper"></i> Content Spam Detection</h2>
+              <p>Analyze articles and content for promotional spam or misleading information</p>
+            </div>
+
+            <div class="input-card">
+              <label for="content-input">Paste content here:</label>
+              <textarea id="content-input" placeholder="Share your article or content..." rows="8"></textarea>
+              <div class="input-meta">
+                <span id="content-words">0</span> words
+              </div>
+              <button class="btn-primary" onclick="detectContentSpam()">
+                <i class="fas fa-search"></i> Analyze Content
+              </button>
+            </div>
+
+            <div id="content-result" class="result-card" style="display: none;">
+              <div class="result-header">
+                <span id="content-status" class="status-badge"></span>
+                <span id="content-confidence" class="confidence-score"></span>
+              </div>
+              <div class="credibility-section">
+                <label>Content Credibility</label>
+                <div class="progress-bar">
+                  <div id="content-progress" class="progress-fill"></div>
+                </div>
+              </div>
+              <div id="content-explanation" class="explanation-box"></div>
+              <button class="btn-secondary" onclick="resetContentDetection()">Reset</button>
+            </div>
+          </section>
+
+          <!-- Phone Number Detection -->
+          <section id="phone" class="content-section">
+            <div class="section-header">
+              <h2><i class="fas fa-phone"></i> Phone Number Detection</h2>
+              <p>Check if a phone number is associated with spam or suspicious activity</p>
+            </div>
+
+            <div class="input-card">
+              <label for="phone-input">Enter phone number:</label>
+              <div class="phone-input-group">
+                <select id="country-code" class="country-select">
+                  <option value="+91">+91 (India)</option>
+                  <option value="+44">+44 (UK)</option>
+                  <option value="+1">+1 (USA)</option>
+                  <option value="+86">+86 (China)</option>
+                  <option value="+33">+33 (France)</option>
+                </select>
+                <input type="tel" id="phone-input" placeholder="Enter Phone Number" class="phone-number-input">
+              </div>
+              <button class="btn-primary" onclick="detectPhoneSpam()">
+                <i class="fas fa-search"></i> Check Number
+              </button>
+            </div>
+
+            <div id="phone-result" class="result-card" style="display: none;">
+              <div class="result-header">
+                <span id="phone-status" class="status-badge"></span>
+              </div>
+              <div class="risk-section">
+                <label>Risk Level</label>
+                <div id="phone-risk" class="risk-level"></div>
+              </div>
+              <div id="phone-reason" class="reason-box"></div>
+              <button class="btn-secondary" onclick="resetPhoneDetection()">Reset</button>
+            </div>
+          </section>
+
+          <!-- Model Performance -->
+          <section id="performance" class="content-section">
+            <div class="section-header">
+              <h2><i class="fas fa-chart-bar"></i> Model Performance</h2>
+              <p>Detailed metrics and evaluation of our spam detection models</p>
+            </div>
+
+            <div class="performance-grid">
+              <div class="metric-card">
+                <h3>Model Name</h3>
+                <p>SpamGuard Classifier v2.1</p>
+              </div>
+              <div class="metric-card">
+                <h3>Accuracy</h3>
+                <p class="metric-value">94.7%</p>
+              </div>
+              <div class="metric-card">
+                <h3>Precision</h3>
+                <p class="metric-value">92.3%</p>
+              </div>
+              <div class="metric-card">
+                <h3>Recall</h3>
+                <p class="metric-value">96.1%</p>
+              </div>
+              <div class="metric-card">
+                <h3>Dataset Size</h3>
+                <p>50,000+ samples</p>
+              </div>
+            </div>
+
+            <div class="warning-box">
+              <i class="fas fa-exclamation-triangle"></i>
+              <p><strong>Disclaimer:</strong> Model trained on public datasets; real-world accuracy may vary. Always verify critical decisions manually.</p>
+            </div>
+          </section>
+
+          <!-- About Project -->
+          <section id="about" class="content-section">
+            <div class="section-header">
+              <h2><i class="fas fa-book"></i> About SpamGuard AI</h2>
+              <p>Learn more about this spam detection platform</p>
+            </div>
+
+            <div class="about-content">
+              <div class="about-section">
+                <h3><i class="fas fa-lightbulb"></i> Project Overview</h3>
+                <p>SpamGuard is a comprehensive multi-channel spam detection platform designed to protect users from unwanted communications, phishing attempts, and malicious content across emails, SMS, URLs, and more.</p>
+              </div>
+
+              <div class="about-section">
+                <h3><i class="fas fa-cogs"></i> Technologies Used</h3>
+                <ul>
+                  <li>Frontend: HTML, CSS, JavaScript</li>
+                  <li>Machine Learning: Python, scikit-learn, TensorFlow</li>
+                  <li>NLP: NLTK, spaCy for text processing</li>
+                  <li>Deployment: Vite for build tooling</li>
+                </ul>
+              </div>
+
+              <div class="about-section">
+                <h3><i class="fas fa-database"></i> Model Details</h3>
+                <p>Our spam detection models use a combination of machine learning techniques including:</p>
+                <ul>
+                  <li>Random Forest classifier for feature importance analysis</li>
+                  <li>Deep Neural Networks for complex pattern recognition</li>
+                  <li>Natural Language Processing for text analysis</li>
+                  <li>URL pattern analysis and reputation checking</li>
+                </ul>
+              </div>
+
+              <div class="about-section">
+                <h3><i class="fas fa-download"></i> Dataset Source</h3>
+                <ul>
+                  <li>UCI Machine Learning Repository - Spam Email Dataset</li>
+                  <li>Public SMS spam collection</li>
+                  <li>URLhaus malicious URL database</li>
+                  <li>Real-world spam reports from users</li>
+                </ul>
+              </div>
+
+              <div class="about-section">
+                <h3><i class="fas fa-warning"></i> Limitations</h3>
+                <ul>
+                  <li>Models may not catch newly evolved spam techniques</li>
+                  <li>False positives/negatives are possible</li>
+                  <li>Performance varies by language and region</li>
+                  <li>Requires regular updates with new training data</li>
+                </ul>
+              </div>
+
+              <div class="about-section">
+                <h3><i class="fas fa-rocket"></i> Future Enhancements</h3>
+                <ul>
+                  <li>Real-time API integration for multiple platforms</li>
+                  <li>Browser extension for email clients</li>
+                  <li>Mobile app support</li>
+                  <li>Advanced phishing detection using image analysis</li>
+                  <li>Community-driven threat intelligence</li>
+                  <li>Multi-language support</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2026 SpamGuard. All rights reserved. | Privacy Protection Guaranteed</p>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

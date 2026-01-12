@@ -1,0 +1,143 @@
+/* ------------------------------
+   AOS BASE TRANSITIONS
+--------------------------------*/
+
+[data-aos] {
+  transition-property: opacity, transform;
+}
+
+body[data-aos-duration] [data-aos] {
+  transition-duration: inherit;
+}
+
+body[data-aos-delay] [data-aos] {
+  transition-delay: 0;
+}
+
+body[data-aos-delay] [data-aos].aos-animate {
+  transition-delay: inherit;
+}
+
+/* ------------------------------
+   DURATION SETTINGS
+--------------------------------*/
+
+[data-aos-duration="50"]  { transition-duration: 50ms; }
+[data-aos-duration="100"] { transition-duration: .1s; }
+[data-aos-duration="150"] { transition-duration: .15s; }
+[data-aos-duration="200"] { transition-duration: .2s; }
+[data-aos-duration="250"] { transition-duration: .25s; }
+[data-aos-duration="300"] { transition-duration: .3s; }
+[data-aos-duration="400"] { transition-duration: .4s; }
+[data-aos-duration="500"] { transition-duration: .5s; }
+[data-aos-duration="600"] { transition-duration: .6s; }
+[data-aos-duration="700"] { transition-duration: .7s; }
+[data-aos-duration="800"] { transition-duration: .8s; }
+[data-aos-duration="900"] { transition-duration: .9s; }
+[data-aos-duration="1000"] { transition-duration: 1s; }
+[data-aos-duration="1500"] { transition-duration: 1.5s; }
+[data-aos-duration="2000"] { transition-duration: 2s; }
+[data-aos-duration="3000"] { transition-duration: 3s; }
+
+/* ------------------------------
+   EASING
+--------------------------------*/
+
+[data-aos-easing="linear"] {
+  transition-timing-function: cubic-bezier(.25,.25,.75,.75);
+}
+
+[data-aos-easing="ease"] {
+  transition-timing-function: ease;
+}
+
+[data-aos-easing="ease-in"] {
+  transition-timing-function: ease-in;
+}
+
+[data-aos-easing="ease-out"] {
+  transition-timing-function: ease-out;
+}
+
+[data-aos-easing="ease-in-out"] {
+  transition-timing-function: ease-in-out;
+}
+
+/* ------------------------------
+   FADE ANIMATIONS
+--------------------------------*/
+
+[data-aos^="fade"] {
+  opacity: 0;
+}
+
+[data-aos^="fade"].aos-animate {
+  opacity: 1;
+  transform: translateZ(0);
+}
+
+[data-aos="fade-up"]        { transform: translateY(100px); }
+[data-aos="fade-down"]      { transform: translateY(-100px); }
+[data-aos="fade-left"]      { transform: translateX(100px); }
+[data-aos="fade-right"]     { transform: translateX(-100px); }
+[data-aos="fade-up-left"]   { transform: translate(100px,100px); }
+[data-aos="fade-up-right"]  { transform: translate(-100px,100px); }
+[data-aos="fade-down-left"] { transform: translate(100px,-100px); }
+[data-aos="fade-down-right"]{ transform: translate(-100px,-100px); }
+
+/* ------------------------------
+   ZOOM ANIMATIONS
+--------------------------------*/
+
+[data-aos^="zoom"] {
+  opacity: 0;
+}
+
+[data-aos^="zoom"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[data-aos="zoom-in"]        { transform: scale(.6); }
+[data-aos="zoom-out"]       { transform: scale(1.2); }
+
+/* ------------------------------
+   SLIDE ANIMATIONS
+--------------------------------*/
+
+[data-aos^="slide"] {
+  transition-property: transform;
+}
+
+[data-aos="slide-up"]    { transform: translateY(100%); }
+[data-aos="slide-down"]  { transform: translateY(-100%); }
+[data-aos="slide-left"]  { transform: translateX(100%); }
+[data-aos="slide-right"] { transform: translateX(-100%); }
+
+/* ------------------------------
+   FLIP ANIMATIONS
+--------------------------------*/
+
+[data-aos^="flip"] {
+  backface-visibility: hidden;
+}
+
+[data-aos="flip-left"] {
+  transform: perspective(2500px) rotateY(-100deg);
+}
+
+[data-aos="flip-right"] {
+  transform: perspective(2500px) rotateY(100deg);
+}
+
+[data-aos="flip-up"] {
+  transform: perspective(2500px) rotateX(-100deg);
+}
+
+[data-aos="flip-down"] {
+  transform: perspective(2500px) rotateX(100deg);
+}
+
+[data-aos^="flip"].aos-animate {
+  transform: perspective(2500px) rotate(0);
+}

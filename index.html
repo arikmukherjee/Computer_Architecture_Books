@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- ==============================================
+        Basic Page Needs
+        =============================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+
+        <title>SpamGuard</title>
+
+        <meta name="description" content="Creative Agency, Portfolio, Corporate, Startup & Technology">
+        <meta name="subject" content="Creative Agency, Portfolio, Corporate, Startup & Technology">
+        <meta name="author" content="Codings">
+
+        <!-- ==============================================
+        Favicons
+        =============================================== -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
+
+        <!-- ==============================================
+        Vendor Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/slider.min.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/vendor/icons.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/animation.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/gallery.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/cookie-notice.min.css">
+
+        <!-- ==============================================
+        Custom Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/default.css">
+        <link rel="stylesheet" href="assets/css/theme-pink.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+        <!-- ==============================================
+        Theme Settings
+        =============================================== -->
+        <style>
+            :root {
+                --primary-color: #dd1e4b;
+                --secondary-color: #E0040B;
+
+                --header-bg-color: #16161c;
+                --nav-item-color: #f5f5f5;
+                --top-nav-item-color: #f5f5f5;
+                --hero-bg-color: #111111;
+
+                --section-1-bg-color: #191919;
+
+                --card-bg-color: #16161c;
+            
+                --footer-bg-color: #111117;
+            }
+
+            body {
+                background-color: #191919;
+            }
+
+            header .navbar-sticky {
+                opacity: 0;
+            }
+
+            h1, .slide-content .title {
+                font-size: 5rem;
+                max-width: 1040px;
+                margin: auto;
+            }
+
+            h4 {
+                font-size: 1.4rem;
+            }
+
+            h5 {
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: var(--primary-p-color);
+            }
+
+            .thin {
+                font-weight: 400;
+            }
+
+            header .navbar-expand .navbar-brand i.version-number {
+                color: #dd1e4b;
+            }
+
+            .btn.bigger {
+                font-family: "Default";
+                font-size: 1.2rem;
+            }
+
+            header .primary-button:hover,
+            .hero .primary-button:hover {
+                background-image: none;
+                background-color: #dd1e4b;
+                border-color: #dd1e4b;
+            }
+
+            .hero .effect-static-text {
+                color: #f5f5f5;
+                -webkit-text-fill-color: #f5f5f5;
+                background: none;
+            }
+
+            .hero .icon {
+                color: var(--primary-color);
+            }
+
+            section.featured:after {
+                content: '';
+                position: absolute;
+                z-index: 2;
+                bottom: -50px;
+                left: 50%;
+                left: calc(50% - 2.5px);
+                width: 5px;
+                height: 100px;
+                background-image: -webkit-linear-gradient(45deg, #dd1e4b 15%, #E0040B 65%);
+                background-image: linear-gradient(45deg, #dd1e4b 15%, #E0040B 65%);
+            }
+
+            .offers .card {
+                padding: 35px 35px 40px;
+            }
+
+            .showcase .card .image-over img {
+                height: auto;
+            }
+
+            .showcase .card:hover .image-over:before,
+            .showcase .card:not(.no-hover):hover {
+                background: -webkit-linear-gradient(45deg, #040402 15%, #111111 65%);
+                background: linear-gradient(45deg, #040402 15%, #111111 65%);
+            }
+
+            .showcase .card .btn.smaller {
+                width: 50%;
+            }
+
+            .showcase .card .btn.smaller:last-child {
+                margin: 0 0 0 5px;
+            }
+            
+            .showcase .card .btn.smaller:first-child {
+                margin: 0 5px 0 0;
+            }
+
+            @media(max-width: 768px) {
+                .showcase .card .btn.smaller {
+                    width: fit-content;
+                }
+            }
+
+            .gdpr-cookie-notice {
+                display: none;
+            }
+
+            .pretitle {
+                display: block;
+                margin: 0 0 1rem;
+                color: var(--primary-color);
+            }
+
+            @media(max-width: 1024px) {
+                .hide-1024 {
+                    display: none;
+                }
+            }
+        </style>
+        
+    </head>
+
+    <body>
+
+        <!-- Preloader -->
+        <div data-timeout="3000" class="odd preloader counter">
+            <div data-aos="fade-up" data-aos-delay="200" class="row justify-content-center text-center items">
+                <div data-percent="100" class="radial">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header">
+
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand navbar-fixed">
+                <div class="container header">
+
+                    <!-- Navbar Brand-->
+                    <a class="navbar-brand" href="/">
+                        SpamGuard </a>
+                        <!-- 
+                            Custom Logo
+                            <img src="assets/images/logo.svg" alt="Leverage">
+                        -->
+                    </a>
+
+                    <!-- Nav holder -->
+                    <div class="ml-auto"></div>
+
+                    <!-- Navbar Action -->
+                    <ul class="navbar-nav action">
+                        <li class="nav-item ml-3">
+                        <a href="/Spam detection/index.html" class="btn ml-lg-auto primary-button">
+                            <i class="fas fa-search"></i> CHECK NOW
+                        </a>                            <!-- 
+                                Suggestion: Replace the purchase button above with a contact button.
+                                
+                                <a href="#contact" class="smooth-anchor btn ml-lg-auto primary-button"><i class="icon-rocket"></i>CONTACT US</a>
+                            -->
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </header>
+
+        <!-- Hero -->
+        <section id="slider" class="hero p-0 odd featured">
+            <div class="swiper-container no-slider slider-h-100">
+                <div class="swiper-wrapper">
+
+                    <!-- Item 1 -->
+                    <div class="swiper-slide slide-center">
+
+                        <video class="full-image" data-mask="10" playsinline autoplay muted loop>
+                            <source src="assets/videos/colors2.mp4" type="video/mp4" />
+                        </video> 
+
+                        <div class="slide-content row text-center">
+                            <div class="col-12 mx-auto inner">
+                                <div class="center align-self-center text-center">
+
+                                    <h1 class="title effect-static-text">Intelligent Spam Detection</h1>
+                                    
+                                    <div class="hide-1024 row mt-4 justify-content-center text-center items">
+                                        <div class="col-12 col-md-6 col-lg-4 item">
+                                            <div class="card no-hover">
+                                                <i class="fas fa-envelope fa-2x"></i>
+                                                <h4>Email & SMS Detection</h4>
+                                                <p> Accurately detects spam in emails and SMS messages using intelligent text analysis.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 item">
+                                            <div class="card no-hover">
+                                                <i class="fas fa-link fa-2x"></i>
+                                                <h4>Link & URL Analysis</h4>
+                                                <p>Identifies suspicious and malicious links to protect users from phishing and scams.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 item">
+                                            <div class="card no-hover">
+                                                <i class="fas fa-shield-halved fa-2x"></i>
+                                                <h4>Secure & Privacy-First</h4>
+                                                <p>Ensures user data privacy while delivering reliable spam detection results.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Demos -->
+        <section id="demos" class="section-1 showcase portfolio blog-grid odd featured filter-section">
+            <div class="overflow-holder">
+                <div class="container full-grid">
+                    <div class="row text-center intro">
+                        <div class="col-12">
+                            <span class="pretitle">Identifies and classifies spam across various communication channels</span>
+                            <h2>Many platforms. Many spam types.</h2>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Grid -->
+                    <div class="row items filter-items">
+
+                        <div class="col-12 col-md-6 col-lg-3 item filter-item" data-groups='["agency", "product"]'>
+                            <div class="row card p-0 text-center">
+                                <div class="image-over">
+                                    <img src="assets/images/email.jpg" alt="Email Spam">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                    <div class="card-body">
+                                        <h4 class="m-0">Email Spam</h4>
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        Unwanted or malicious emails often containing advertisements, phishing links, or fake offers.   
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 item filter-item" data-groups='["agency", "event"]'>
+                            <div class="row card p-0 text-center">
+                                <div class="image-over">
+                                    <img src="assets/images/sms.jpg" alt="SMS Spam">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                    <div class="card-body">
+                                        <h4 class="m-0">SMS Spam</h4>
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        Promotional or fraudulent text messages designed to trick users or spread malicious links.                                   
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 item filter-item" data-groups='["agency", "business"]'>
+                            <div class="row card p-0 text-center">
+                                <div class="image-over">
+                                    <img src="assets/images/link.png" alt="Link / URL Spam">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                    <div class="card-body">
+                                        <h4 class="m-0">Link / URL Spam</h4>
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                       Suspicious or shortened links that redirect users to phishing, scam, or malware websites.                                    
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 item filter-item" data-groups='["agency", "business"]'>
+                            <div class="row card p-0 text-center">
+                                <div class="image-over">
+                                    <img src="assets/images/news.jpg" alt="News & Content Spam">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                    <div class="card-body">
+                                        <h4 class="m-0">News & Content Spam</h4>
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        Misleading articles or promotional content created to manipulate, advertise, or deceive readers.                                   
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 item filter-item" data-groups='["agency", "portfolio"]'>
+                            <div class="row card p-0 text-center">
+                                <div class="image-over">
+                                    <img src="assets/images/phone.jpg" alt="Phone Number Spam">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                    <div class="card-body">
+                                        <h4 class="m-0">Phone Number Spam</h4>
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                       Calls or messages from unknown numbers commonly used for scams, robocalls, or fraud attempts.                                   
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 item filter-item" data-groups='["agency", "product", "business"]'>
+                            <div class="row card p-0 text-center">
+                                <div class="image-over">
+                                    <img src="assets/images/social.jpg" alt="Social Media Spam">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                    <div class="card-body">
+                                        <h4 class="m-0">Social Media Spam</h4>
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        Fake comments, messages, or posts used to promote scams, fake profiles, or malicious content.                                   
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 item filter-item" data-groups='["agency", "event", "business"]'>
+                            <div class="row card p-0 text-center">
+                                <div class="image-over">
+                                    <img src="assets/images/website.png" alt="Website / Comment Spam">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                    <div class="card-body">
+                                        <h4 class="m-0">Website / Comment Spam</h4>
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                       Automated or low-quality comments posted on websites to advertise products or insert harmful links.                                   
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 item filter-item" data-groups='["portfolio", "product"]'>
+                            <div class="row card p-0 text-center">
+                                <div class="image-over">
+                                    <img src="assets/images/file.jpg" alt="File & Attachment Spam">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                    <div class="card-body">
+                                        <h4 class="m-0">File & Attachment Spam</h4>
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                     Emails or messages containing malicious or deceptive attachments intended to spread malware.                                   
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                         
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buy Now -->
+        <section class="hero p-0 odd">
+    <div class="swiper-container no-slider slider-h-100">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide-center">
+                <div id="particles-1" class="particles full-image" data-particle="bubble" data-mask="70"></div>  
+
+                <div class="slide-content row text-center">
+                    <div class="col-12 mx-auto inner">
+                        <div class="center align-self-center text-center">
+
+                            <h2 class="title effect-static-text">
+                                <i class="fas fa-chart-line fa"></i> Model Performance
+                            </h2>
+
+                            <p class="mt-3">
+                                Detailed metrics and evaluation of our spam detection system
+                            </p>
+                            
+                            <div class="hide-1024 row mt-4 justify-content-center text-center items">
+
+                                <div class="col-12 col-md-6 col-lg-4 item">
+                                    <div class="card no-hover">
+                                        <i class="fas fa-bullseye fa-2x"></i>
+                                        <h4>Accuracy</h4>
+                                        <p>Overall detection accuracy of <strong>94.7%</strong>.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-4 item">
+                                    <div class="card no-hover">
+                                        <i class="fas fa-check-double fa-2x"></i>
+                                        <h4>Precision & Recall</h4>
+                                        <p>High precision (92.3%) and recall (96.1%).</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-4 item">
+                                    <div class="card no-hover">
+                                        <i class="fas fa-database fa-2x"></i>
+                                        <h4>Dataset Strength</h4>
+                                        <p>Trained on <strong>50,000+</strong> labeled samples.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="buttons mt-4 d-sm-inline-flex justify-content-center">
+                                <span class="mx-auto ml-sm-0 mr-sm-0 mt-4">
+                                    <strong>Disclaimer:</strong> Model trained on public datasets; real-world accuracy may vary.
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+        <!-- #region Global ============================ -->
+
+        <!-- Modal [search] -->
+        <div id="search" class="p-0 modal fade" role="dialog" aria-labelledby="search" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        Search <i class="icon-close"></i>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="row">
+                                    <div class="col-12 p-0 pb-3">
+                                        <h2>What are you looking for?</h2>
+                                        <p>Search for services and news about the best that happens in the world.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="text" class="form-control" placeholder="Enter Keywords">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group align-self-center">
+                                        <button class="btn primary-button"><i class="icon-magnifier"></i>SEARCH</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal [sign] -->
+        <div id="sign" class="p-0 modal fade" role="dialog" aria-labelledby="sign" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        Sign In Form <i class="icon-close"></i>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/" class="row">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="row">
+                                    <div class="col-12 p-0 pb-3">
+                                        <h2>Sign In</h2>
+                                        <p>Don't have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#register">Register now</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="password" class="form-control" placeholder="Password" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group align-self-center">
+                                        <button class="btn primary-button"><i class="icon-login"></i>LOGIN</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- Scroll [to top] -->
+        <div id="scroll-to-top" class="scroll-to-top">
+            <a href="#header" class="smooth-anchor">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>        
+        
+        <!-- ==============================================
+        Google reCAPTCHA // Put your site key here
+        =============================================== -->
+        <script src="https://www.google.com/recaptcha/api.js?render=6Lf-NwEVAAAAAPo_wwOYxFW18D9_EKvwxJxeyUx7"></script>
+
+        <!-- ==============================================
+        Vendor Scripts
+        =============================================== -->
+        <script src="assets/js/vendor/jquery.min.js"></script>
+        <script src="assets/js/vendor/jquery.easing.min.js"></script>
+        <script src="assets/js/vendor/jquery.inview.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/ponyfill.min.js"></script>
+        <script src="assets/js/vendor/slider.min.js"></script>
+        <script src="assets/js/vendor/animation.min.js"></script>
+        <script src="assets/js/vendor/progress-radial.min.js"></script>
+        <script src="assets/js/vendor/bricklayer.min.js"></script>
+        <script src="assets/js/vendor/gallery.min.js"></script>
+        <script src="assets/js/vendor/shuffle.min.js"></script>
+        <script src="assets/js/vendor/cookie-notice.min.js"></script>
+        <script src="assets/js/vendor/particles.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <!-- #endregion Global ========================= -->
+
+    </body>
+</html>
